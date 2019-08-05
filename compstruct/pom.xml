@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+  <groupId>mitcscore</groupId>
+  <artifactId>root</artifactId>
+  <version>1.0</version>
+  </parent>
+
+  <artifactId>compstruct</artifactId>
+
+  <packaging>pom</packaging>
+
+  <description>Implementation of topics from MIT 6.004 Computation Structures. Based on the material from the spring 2017 open courseware. https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-004-computation-structures-spring-2017/index.htm </description>
+  <modules>
+  </modules>
+
+
+
+</project>
+

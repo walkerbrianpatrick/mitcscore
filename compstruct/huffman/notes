@@ -1,0 +1,20 @@
+Huffman's Algorithm
+
+Given a set of symbols and their probabilities, this algorithm generates an 
+optimal variable length encoder. So, a cool demonstration of this algorithm 
+would be to take a text, generate its optimal variable length encoder, 
+and encode/decode that text. The value of the algorithm is demonstrated by 
+comparing the size of the original text file to a file which contains the 
+encoded data. 
+
+The huffman tree problem has a few main components:
+
+1. analyze a text to determine the probability of a symbol
+2. ability to construct a tree according to huffman's algorithm
+3. using said tree to encode the text
+4. decoding the data using the tree
+5. observing the size of the data before and after encoding
+
+To make this a useful tool, a procedure for including the encoder as a 
+serialized object along with the data and a way to recover that encoder 
+should be developed.
