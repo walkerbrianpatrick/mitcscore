@@ -2,7 +2,7 @@ package mitcscore.compstruct.huffman;
 
 import java.util.Set;
 
-public class SymbolCollector {
+public class NodeCollector {
 
 	Set<String> symbols;
 	

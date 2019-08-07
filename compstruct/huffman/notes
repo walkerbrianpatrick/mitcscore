@@ -17,4 +17,4 @@ The huffman tree problem has a few main components:
 
 To make this a useful tool, a procedure for including the encoder as a 
 serialized object along with the data and a way to recover that encoder 
-should be developed.
+should be developed
