@@ -2,11 +2,13 @@ package mitcscore.compstruct.huffman;
 
 import java.util.Deque;
 
+
 public class HuffmanNode implements Comparable<HuffmanNode>{
 	private String symbol;
 	private Long count;
 	private HuffmanNode left;
 	private HuffmanNode right;
+	
 	
 	public HuffmanNode(HuffmanNode left, HuffmanNode right) {
 		this.left = left;
@@ -60,6 +62,14 @@ public class HuffmanNode implements Comparable<HuffmanNode>{
 		this.right = right;
 	}
 	
+	public int numNodes() {
+		int totalNodes = 1;
+		if(left!=null) totalNodes += left.numNodes();
+		if(right!=null) totalNodes += right.numNodes();
+		return totalNodes;
+	}
+	
+	
 	public String decode(Deque<String> buffer) {		
 		// catch the buffer being empty
 		if(buffer.isEmpty() && symbol == null) {
@@ -80,7 +90,10 @@ public class HuffmanNode implements Comparable<HuffmanNode>{
 
 	@Override
 	public String toString() {
-		return "HuffmanNode [symbol=" + symbol + ", count=" + count + ", left=" + left + ", right=" + right + "]";
+		if(symbol==null) {
+			return getCount().toString();
+		}
+		return symbol + ":" + getCount();
 	}
 
 	@Override

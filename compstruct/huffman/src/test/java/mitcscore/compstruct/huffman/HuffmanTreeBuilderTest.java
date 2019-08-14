@@ -14,11 +14,24 @@ public class HuffmanTreeBuilderTest {
 		
 		HuffmanNode node = HuffmanTreeBuilder.build(nc.getSymbols());
 		
-		//TODO: implement a tree print algorithm here for observation
-		//     
-		System.out.println(node);
+		HuffmanTreeBuilder.print(node);
 		
 	}
+	
+	@Test
+	public void createBalancedTree() {
+		String text = "aabbccdd";
+
+		NodeCollector nc = new NodeCollector();
+
+		nc.collectInUnits(text, 1);
+		
+		HuffmanNode node = HuffmanTreeBuilder.build(nc.getSymbols());
+		
+		HuffmanTreeBuilder.print(node);
+		
+	}
+
 	
 	
 }
