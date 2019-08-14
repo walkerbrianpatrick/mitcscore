@@ -1,5 +1,10 @@
 package mitcscore.compstruct.huffman;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -40,6 +45,26 @@ public class NodeCollector {
 		}
 	}
 	
+	
+	public void collectFromFile(Path path, int units) {
+		if(path.toFile().exists() && path.toFile().isFile()) {
+			
+			String line;
+			try(BufferedReader reader = new BufferedReader(new FileReader(path.toString()))){
+				while((line=reader.readLine())!=null) {
+					collectInUnits(line, units);
+				}
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	
 	public List<HuffmanNode> getSymbols() {
 		return symbols;
 	}
@@ -48,6 +73,12 @@ public class NodeCollector {
 		this.symbols = symbols;
 	}
 	
-	
+	public long getCountAllSymbols() {
+		long result = 0;
+		for(HuffmanNode symbol: symbols) {
+			result += symbol.getCount();
+		}
+		return result;
+	}
 	
 }
