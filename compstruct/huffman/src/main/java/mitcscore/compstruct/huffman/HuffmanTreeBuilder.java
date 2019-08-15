@@ -1,8 +1,10 @@
 package mitcscore.compstruct.huffman;
 
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -61,6 +63,35 @@ public class HuffmanTreeBuilder {
 			System.out.println(fullline);
 		}
 		
+	}
+	
+	
+	public static Map<String, String> getEncoderFromTree(HuffmanNode node){
+		Map<String, String> encoder = new HashMap<>();
+		
+		String binary = "";
+		
+		walkTreeForEncoder(node, encoder, binary);
+		
+		return encoder;
+	}
+	
+	private static void walkTreeForEncoder(HuffmanNode node, Map<String, String> encoder, String binary) {
+
+		if(node.getSymbol()!=null) {
+			encoder.put(node.getSymbol(), binary);
+			return;
+		}
+		
+		// the left child path
+		if(node.getLeft() != null ) {
+			walkTreeForEncoder(node.getLeft(), encoder, binary+"0");
+		}
+		
+		// the right child path
+		if(node.getRight()!=null ) {
+			walkTreeForEncoder(node.getRight(), encoder, binary+"1");
+		}
 	}
 	
 }

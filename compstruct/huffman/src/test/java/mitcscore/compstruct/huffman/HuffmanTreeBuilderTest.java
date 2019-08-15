@@ -38,13 +38,29 @@ public class HuffmanTreeBuilderTest {
 	@Test
 	public void createTreeForBigText() {
 		NodeCollector nc = new NodeCollector();
-		nc.collectFromFile(testText, 1);
+		nc.collectInUnits(testText, 1);
 		System.out.println("Number of unique symbols in text: "+ Long.toString(nc.getSymbols().size()));
 		System.out.println("Number of total symbols in text: " + Long.toString(nc.getCountAllSymbols()));
 		
 		HuffmanNode node = HuffmanTreeBuilder.build(nc.getSymbols());
 		
 		HuffmanTreeBuilder.print(node);
-	
 	}
+	
+	@Test
+	public void encodeString() {
+		String text = "abbcddde";
+
+		NodeCollector nc = new NodeCollector();
+
+		nc.collectInUnits(text, 1);
+		
+		HuffmanNode node = HuffmanTreeBuilder.build(nc.getSymbols());
+		
+		HuffmanTreeBuilder.print(node);
+
+		
+	}
+	
+	
 }

@@ -46,7 +46,7 @@ public class NodeCollector {
 	}
 	
 	
-	public void collectFromFile(Path path, int units) {
+	public void collectInUnits(Path path, int units) {
 		if(path.toFile().exists() && path.toFile().isFile()) {
 			
 			String line;
